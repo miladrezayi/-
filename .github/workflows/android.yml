@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -33,6 +33,21 @@ jobs:
           gradle-version: '8.9'
       - name: Download licensed offline sound library
         run: bash .github/scripts/download_siren_sounds.sh
+      - name: Commit downloaded offline sound assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/src/main/res/raw/*.mp3
+          if git diff --cached --quiet; then
+            echo "No sound asset updates."
+          else
+            git commit -m "Add CC0 offline radio and siren audio assets"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - name: Package sound library
+        run: zip -j SirenRadio-sound-assets.zip app/src/main/res/raw/*.mp3
       - name: Build debug APK
         run: gradle --no-daemon assembleDebug
       - name: Upload APK
@@ -40,4 +55,10 @@ jobs:
         with:
           name: SirenRadio-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+      - name: Upload sound library
+        uses: actions/upload-artifact@v4
+        with:
+          name: SirenRadio-sound-assets
+          path: SirenRadio-sound-assets.zip
           if-no-files-found: error
