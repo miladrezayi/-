@@ -281,12 +281,6 @@ private class SoundBoard(context: Context) {
         val player = try { MediaPlayer.create(appContext, resourceId) } catch (_: Exception) { null }
             ?: return false
 
-        player.setAudioAttributes(
-            AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_MEDIA)
-                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                .build()
-        )
         player.isLooping = loop
         player.setVolume(volume, volume)
         players[id] = player
