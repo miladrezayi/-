@@ -85,6 +85,12 @@ class MainActivity : Activity() {
             gravity = Gravity.CENTER_HORIZONTAL
         }
         leftPanel.addView(panelHeading("بی‌سیم"))
+        addTile(leftPanel, "■\\nSTOP ALL\\nتوقف همه صداها", Color.rgb(132, 36, 48)) {
+            soundBoard.stopAll()
+            pttActive = false
+            radioView.setTransmitting(false)
+            setStatus("همه صداها متوقف شدند")
+        }
         addTile(leftPanel, "◉\nPUSH TO TALK\nنگه دار و صحبت کن", Color.rgb(20, 91, 91)) {
             // A click is intentionally not used for PTT. It is a press-and-hold control.
             setStatus("برای ارسال افکت، دکمه را نگه دار")
