@@ -1,0 +1,62 @@
+[
+  {
+    "file": "air_horn.wav",
+    "duration_seconds": 1.35,
+    "sample_rate": 22050,
+    "channels": 1
+  },
+  {
+    "file": "ambulance.wav",
+    "duration_seconds": 4.5,
+    "sample_rate": 22050,
+    "channels": 1
+  },
+  {
+    "file": "fire_engine.wav",
+    "duration_seconds": 5.0,
+    "sample_rate": 22050,
+    "channels": 1
+  },
+  {
+    "file": "low_horn.wav",
+    "duration_seconds": 1.1,
+    "sample_rate": 22050,
+    "channels": 1
+  },
+  {
+    "file": "police_eu.wav",
+    "duration_seconds": 5.0,
+    "sample_rate": 22050,
+    "channels": 1
+  },
+  {
+    "file": "police_us.wav",
+    "duration_seconds": 5.0,
+    "sample_rate": 22050,
+    "channels": 1
+  },
+  {
+    "file": "radio_chirp.wav",
+    "duration_seconds": 0.45,
+    "sample_rate": 22050,
+    "channels": 1
+  },
+  {
+    "file": "radio_click_off.wav",
+    "duration_seconds": 0.22,
+    "sample_rate": 22050,
+    "channels": 1
+  },
+  {
+    "file": "radio_click_on.wav",
+    "duration_seconds": 0.2,
+    "sample_rate": 22050,
+    "channels": 1
+  },
+  {
+    "file": "radio_static.wav",
+    "duration_seconds": 3.6,
+    "sample_rate": 22050,
+    "channels": 1
+  }
+]
